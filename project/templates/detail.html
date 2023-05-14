@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            padding: 100px;
+        }
+    </style>
+</head>
+
+<body>
+
+{{chocolate.title}}
+<img src="{{chocolate.image_url}}" width="20%">
+<a href="{% url 'checkout' chocolate.id %}"><button>Buy</button></a>
+
+
+<h2>Edit Chocolate</h2>
+    <div id="edit-form">
+        <form method="post">
+            {% csrf_token %}
+            {{ serializer.as_p }}
+            <input type="submit" value="Update">
+        </form>
+    </div>
+
+</body>
+</html>
